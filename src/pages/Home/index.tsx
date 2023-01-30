@@ -1,4 +1,9 @@
 import { useRef, useState } from "react";
+import AddTaskInput from "../../components/AddTaskInput";
+import Header from "../../components/Header";
+import ProgressBar from "../../components/ProgressBar";
+import TaskCard from "../../components/TaskCard";
+import TasksWarning from "../../components/TasksWarning";
 
 type Task = {
   id: string;
@@ -40,45 +45,31 @@ export default function index() {
   const handleDeleteTask = (id: string) => {
     const newTasks = tasks.filter((item) => id !== item.id);
     setTasks(newTasks);
-  }
+  };
 
   return (
-    <div>
+    <>
+      <Header />
+      <AddTaskInput handleAddTask={handleAddTask} inputRef={inputRef} setInputValue={setInputValue} />
       <div>
-        <p>logo</p>
-        <h1>Tasks</h1>
-      </div>
-      <form onSubmit={(e) => handleAddTask(e)}>
-        <input ref={inputRef} type="text" placeholder="Digite uma tarefa" onChange={(e) => setInputValue(e.target.value)} />
-        <button type="submit">ADD</button>
-      </form>
-      <div>
-        {tasks.length > 0 && (
-          <>
-            <p>Concluídas</p>
-            <p>{`${tasks.filter(({ done }) => done).length}/${tasks.length}`}</p>
-            <div>progress bar</div>
-          </>
-        )}
+        {tasks.length > 0 && <ProgressBar tasks={tasks} />}
         <h2>Todas as tarefas</h2>
         {tasks.length > 0 ? (
           <div>
             {tasks.map(({ id, task, done }) => (
-              <div key={id}>
-                <button onClick={() => handleDeleteTask(id)}>Delete</button>
-                <p>{task}</p>
-                <input type="checkbox" checked={done} onChange={() => handleChangeStatus(id)} />
-              </div>
+              <TaskCard
+                id={id}
+                task={task}
+                done={done}
+                handleDeleteTask={handleDeleteTask}
+                handleChangeStatus={handleChangeStatus}
+              />
             ))}
           </div>
         ) : (
-          <div>
-            <p>Image</p>
-            <p>Não há tarefas cadastradas ainda</p>
-            <button onClick={() => {inputRef.current?.focus()}}>Cadastrar uma tarefa agora</button>
-          </div>
+          <TasksWarning inputRef={inputRef} />
         )}
       </div>
-    </div>
+    </>
   );
 }
