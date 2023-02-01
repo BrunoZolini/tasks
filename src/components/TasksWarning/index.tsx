@@ -1,10 +1,7 @@
-import React from "react";
+import { useTasks } from "../../contexts";
 
-interface Props {
-  inputRef: React.RefObject<HTMLInputElement>;
-}
-
-export default function TasksWarning({ inputRef }: Props) {
+export default function TasksWarning() {
+  const { inputRef } = useTasks();
   return (
     <div>
       <p>Image</p>

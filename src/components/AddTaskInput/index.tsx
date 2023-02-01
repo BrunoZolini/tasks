@@ -1,10 +1,7 @@
-interface Props {
-  handleAddTask: (e: React.FormEvent<HTMLFormElement>) => void,
-  inputRef: React.RefObject<HTMLInputElement>,
-  setInputValue: (e:React.SetStateAction<string> ) => void
-}
+import { useTasks } from "../../contexts";
 
-export default function addTaskInput({ handleAddTask, inputRef, setInputValue }: Props) {
+export default function addTaskInput() {
+  const { setInputValue, inputRef, handleAddTask } = useTasks();
   return (
     <form onSubmit={(e) => handleAddTask(e)}>
       <input

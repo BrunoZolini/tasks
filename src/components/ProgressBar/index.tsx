@@ -1,14 +1,7 @@
-type Task = {
-  id: string;
-  task: string;
-  done: boolean;
-};
+import { useTasks } from "../../contexts";
 
-interface Props {
-  tasks: Task[];
-}
-
-export default function ProgressBar({ tasks }: Props) {
+export default function ProgressBar() {
+  const { tasks } = useTasks();
   return (
     <div>
       <p>Concluídas</p>
