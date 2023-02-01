@@ -55,18 +55,22 @@ export function TasksProvider({ children }: { children: ReactNode }) {
     setTasks(newTasks);
   };
 
-  const initialState = {
-    tasks,
-    setTasks,
-    inputValue,
-    setInputValue,
-    inputRef,
-    handleAddTask,
-    handleChangeStatus,
-    handleDeleteTask,
-  };
-
-  return <Context.Provider value={initialState}>{children}</Context.Provider>;
+  return (
+    <Context.Provider
+      value={{
+        tasks,
+        setTasks,
+        inputValue,
+        setInputValue,
+        inputRef,
+        handleAddTask,
+        handleChangeStatus,
+        handleDeleteTask,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
 }
 
 export const useTasks = () => {
