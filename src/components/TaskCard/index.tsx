@@ -1,6 +1,6 @@
 import check from "../../assets/check.svg";
-import trash from "../../assets/trash.svg";
 import { useTasks } from "../../contexts";
+import { Trash } from "../icons/Trash";
 import * as S from "./styles";
 
 interface Props {
@@ -13,14 +13,24 @@ export default function TaskCard({ id, task, done }: Props) {
   const { handleChangeStatus, handleDeleteTask } = useTasks();
 
   return (
-    <S.Container>
-      <S.Delete onClick={() => handleDeleteTask(id)}>
-        <img src={trash} alt="deletar" />
+    <S.Container
+      tabIndex={0}
+      key={id}
+      onKeyDown={(e) => {     
+        if (e.key === "Enter" || e.key === " ") handleChangeStatus(id);
+      }}
+      onClick={() => handleChangeStatus(id)}
+    >
+      <S.Delete
+        onClick={(e) => {
+          e.stopPropagation();
+          handleDeleteTask(id);
+        }}
+      >
+        <Trash/>
       </S.Delete>
-      <S.SubContainer key={id} onClick={() => handleChangeStatus(id)}>
-        <S.Task>{task}</S.Task>
-        {done ? <S.Check src={check} alt="check" /> : <S.Invisible />}
-      </S.SubContainer>
+      <S.Task>{task}</S.Task>
+      {done ? <S.Check src={check} alt="check" /> : <S.Invisible />}
     </S.Container>
   );
 }

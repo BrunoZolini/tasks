@@ -1,41 +1,50 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  align-items: center;
-  width: 310px;
-  height: 50px;
   margin-top: 8px;
-`;
-export const SubContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 310px;
   height: 50px;
   padding: 10px;
   background-color: #2a2c31;
   border-radius: 10px;
-  :hover {
+  user-select: none;
+  outline: none;
+  &:hover {
+    background-color: #373a44;
+  }
+  &:focus {
     background-color: #373a44;
   }
 `;
 
 export const Delete = styled.button`
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  outline: inherit;
+  outline: none;
   background-color: transparent;
-  margin: 14px;
+  margin-left: 6px;
+  border-radius: 4px;
+  padding: 2px;
+  & > svg {
+    fill: #d95656;
+  }
+  &:focus {
+    background-color: #373a44;
+  }
 `;
 
 export const Task = styled.p`
   font-size: 16px;
   font-weight: 300;
-  margin-left: 44px;
+  margin-left: 6px;
 `;
 
 export const Check = styled.img`
   width: 24px;
+  margin-left: auto;
 `;
 
 export const Invisible = styled.div`

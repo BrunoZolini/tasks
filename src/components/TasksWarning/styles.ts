@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 66px;
 `;
 export const Heading2 = styled.h2`
@@ -14,10 +17,13 @@ export const Button = styled.button`
   background-color: #236fe2;
   font-weight: 400;
   color: #ffffff;
-  width: 248px;
+  padding: 0 2em;
   height: 40px;
   border: none;
   border-radius: 30px;
-  outline: inherit;
+  outline: none;
   cursor: pointer;
+  &:focus {
+    border: 2px solid #abbdd9;
+  }
 `;

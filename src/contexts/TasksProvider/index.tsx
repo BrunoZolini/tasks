@@ -26,6 +26,7 @@ export function TasksProvider({ children }: { children: ReactNode }) {
 
   const handleAddTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!inputValue.trim()) return
     setTasks((prev) => [
       ...prev,
       {

@@ -4,9 +4,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 52px;
+  padding: 0 40px;
   height: 100%;
   width: 100%;
+`;
+
+export const Content = styled.div`
+  width: 100%;
+  @media (min-width: 762px) {
+    max-width: 334px;
+  }
 `;
 
 export const Heading2 = styled.h2`

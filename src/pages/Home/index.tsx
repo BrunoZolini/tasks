@@ -13,19 +13,19 @@ export default function index() {
     <S.Container>
       <Header />
       <AddTaskInput />
-      <div>
+      <S.Content>
         {tasks.length > 0 && <ProgressBar />}
         <S.Heading2>Todas tarefas</S.Heading2>
         {tasks.length > 0 ? (
           <S.TasksWrapper>
             {tasks.map(({ id, task, done }) => (
-              <TaskCard id={id} task={task} done={done} />
+              <TaskCard key={id} id={id} task={task} done={done} />
             ))}
           </S.TasksWrapper>
         ) : (
           <TasksWarning />
         )}
-      </div>
+      </S.Content>
     </S.Container>
   );
 }
