@@ -1,9 +1,11 @@
+import logo from '../../assets/logo.svg';
+import * as S from './styles';
 
 export default function Header() {
   return (
-    <div>
-      <p>logo</p>
-      <h1>Tasks</h1>
-    </div>
+    <S.Container>
+      <img src={logo} alt="Logo" />
+      <S.Heading>Tasks</S.Heading>
+    </S.Container>
   );
 }

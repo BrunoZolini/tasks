@@ -34,6 +34,7 @@ export function TasksProvider({ children }: { children: ReactNode }) {
         done: false,
       },
     ]);
+    setInputValue("");
   };
 
   const handleChangeStatus = (id: string) => {

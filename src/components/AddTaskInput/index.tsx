@@ -1,16 +1,18 @@
 import { useTasks } from "../../contexts";
+import * as S from './styles';
 
 export default function addTaskInput() {
-  const { setInputValue, inputRef, handleAddTask } = useTasks();
+  const { inputValue ,setInputValue, inputRef, handleAddTask } = useTasks();
   return (
-    <form onSubmit={(e) => handleAddTask(e)}>
-      <input
+    <S.Form onSubmit={(e) => handleAddTask(e)}>
+      <S.Input
         ref={inputRef}
         type="text"
         placeholder="Digite uma tarefa"
         onChange={(e) => setInputValue(e.target.value)}
+        value={inputValue}
       />
-      <button type="submit">ADD</button>
-    </form>
+      <S.Button type="submit">ADD</S.Button>
+    </S.Form>
   );
 }

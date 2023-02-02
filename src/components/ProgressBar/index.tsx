@@ -1,12 +1,19 @@
 import { useTasks } from "../../contexts";
+import * as S from "./styles";
 
 export default function ProgressBar() {
   const { tasks } = useTasks();
+  const done = tasks.filter(({ done }) => done).length;
+  const tasksAmount = tasks.length;
   return (
-    <div>
-      <p>Concluídas</p>
-      <p>{`${tasks.filter(({ done }) => done).length}/${tasks.length}`}</p>
-      <div>progress bar</div>
-    </div>
+    <S.Container>
+      <S.SubContainer>
+        <p>Concluídas</p>
+        <p>{`${done}/${tasksAmount}`}</p>
+      </S.SubContainer>
+      <S.ProgressBorder>
+        <S.ProgressBar percentage={done / tasksAmount * 100} />
+      </S.ProgressBorder>
+    </S.Container>
   );
 }
