@@ -15,7 +15,7 @@
 
 * **React** 
 * **ContextAPI** 
-* **JavaScript** 
+* **TypeScript** 
 * **Styled-Components** 
 
 ## 🛠 Como Executar o Projeto
