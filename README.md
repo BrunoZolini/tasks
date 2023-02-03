@@ -9,7 +9,7 @@
 
 ## 💬 Contexto
 
-<p>Este projeto foi um desafio proposto pelo <a href="https://github.com/raulpesilva" target="_blank">Raul Pereira</a>, com o objetivo de validar meus conhecimentos sobre componentização, hooks, estilização, lógica e utilização de contextos.</p>
+<p>Este projeto foi um desafio proposto pelo <a href="https://github.com/raulpesilva" target="_blank">Raul Pereira</a> com o objetivo de validar meus conhecimentos sobre: componentização, hooks, estilização, lógica e utilização de contextos.</p>
 
 ## 👨🏼‍💻 Tecnologias Utilizadas:
 
